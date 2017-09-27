@@ -4,11 +4,11 @@
     <parent>
         <groupId>alien4cloud</groupId>
         <artifactId>alien4cloud-premium-ui-parent</artifactId>
-        <version>1.4.4-SNAPSHOT</version>
+        <version>1.4.3</version>
     </parent>
 
     <artifactId>alien4cloud-premium-ui</artifactId>
-    <version>1.4.4-SNAPSHOT</version>
+    <version>1.4.3</version>
     <name>Alien 4 Cloud Premium Webapp</name>
     <packaging>war</packaging>
 
