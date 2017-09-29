@@ -4,13 +4,14 @@
     <parent>
         <groupId>alien4cloud</groupId>
         <artifactId>alien4cloud-premium-ui-parent</artifactId>
-        <version>1.4.2</version>
+        <version>1.4.2.1</version>
     </parent>
 
     <artifactId>alien4cloud-premium-ui-ssl</artifactId>
-    <version>1.4.2</version>
+    <version>1.4.2.1</version>
     <name>Alien 4 Cloud Premium Webapp With ES SSL</name>
     <packaging>war</packaging>
+
 
     <dependencies>
         <dependency>
@@ -23,12 +24,12 @@
         <dependency>
             <groupId>alien4cloud</groupId>
             <artifactId>alien4cloud-premium-security</artifactId>
-            <version>${project.version}</version>
+            <version>1.4.2</version>
         </dependency>
         <dependency>
             <groupId>org.alien4cloud</groupId>
             <artifactId>alien4cloud-ha</artifactId>
-            <version>${project.version}</version>
+            <version>1.4.2</version>
         </dependency>
         <dependency>
             <groupId>com.floragunn</groupId>
