@@ -30,11 +30,6 @@
             <artifactId>alien4cloud-ha</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.floragunn</groupId>
-            <artifactId>search-guard-ssl</artifactId>
-            <version>${search-guard.version}</version>
-        </dependency>
     </dependencies>
 
     <build>
