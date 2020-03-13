@@ -40,6 +40,6 @@
 
     <modules>
         <module>standalone</module>
-        <module>standalone-ssl</module>
+        <!-- <module>standalone-ssl</module> -->
     </modules>
 </project>
