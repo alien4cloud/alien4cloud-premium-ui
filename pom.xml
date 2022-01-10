@@ -3,86 +3,44 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>alien4cloud</groupId>
-        <artifactId>alien4cloud-premium-ui-parent</artifactId>
+        <artifactId>alien4cloud-parent</artifactId>
         <version>3.0.0</version>
     </parent>
 
-    <artifactId>alien4cloud-premium-ui</artifactId>
-    <version>3.0.1</version>
-    <name>Alien 4 Cloud Premium Webapp</name>
-    <packaging>war</packaging>
+    <artifactId>alien4cloud-premium-ui-parent</artifactId>
+    <version>3.0.0</version>
+    <name>Alien 4 Cloud Premium Webapp Parent</name>
+    <packaging>pom</packaging>
 
-    <dependencies>
-        <dependency>
-            <groupId>alien4cloud</groupId>
-            <artifactId>alien4cloud-ui</artifactId>
-            <version>3.0.0</version>
-            <type>war</type>
-            <classifier>standalone</classifier>
-        </dependency>
-        <dependency>
-            <groupId>alien4cloud</groupId>
-            <artifactId>alien4cloud-premium-security</artifactId>
-            <version>3.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.alien4cloud</groupId>
-            <artifactId>alien4cloud-ha</artifactId>
-            <version>3.0.0</version>
-        </dependency>
-        <dependency>
-          <groupId>org.apache.logging.log4j</groupId>
-          <artifactId>log4j-core</artifactId>
-          <version>2.17.1</version>
-        </dependency>
-        <dependency>
-          <groupId>org.apache.logging.log4j</groupId>
-          <artifactId>log4j-api</artifactId>
-          <version>2.17.1</version>
-        </dependency>
-        <dependency>
-          <groupId>org.apache.logging.log4j</groupId>
-          <artifactId>log4j-slf4j-impl</artifactId>
-          <version>2.17.1</version>
-        </dependency>
-    </dependencies>
+    <repositories>
+        <repository>
+            <id>pdl-releases</id>
+            <url>https://www.portaildulibre.fr/nexus/repository/opensource-releases</url>
+        </repository>
+    </repositories>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.3</version>
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                    <dependentWarExcludes>WEB-INF/lib/log4j-*-2.8.2.jar</dependentWarExcludes>
-                    <overlays>
-                        <overlay>
-                            <id>alien4cloud-ui</id>
-                            <classifier>standalone</classifier>
-                            <filtered>true</filtered>
-                        </overlay>
-                    </overlays>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${spring-boot.version}</version>
-                <executions>
-                    <execution>
-                        <id>package-standalone</id>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                        <configuration>
-                            <classifier>standalone</classifier>
-                            <mainClass>alien4cloud.Application</mainClass>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+    <scm>
+        <connection>scm:git:https://github.com/alien4cloud/alien4cloud-premium-ui.git</connection>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>pdl-releases</id>
+            <url>https://www.portaildulibre.fr/nexus/repository/opensource-releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>pdl-snapshots</id>
+            <url>https://www.portaildulibre.fr/nexus/repository/opensource-snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <properties>
+        <spring-boot.version>1.5.18.RELEASE</spring-boot.version>
+    </properties>
+
+    <modules>
+        <module>standalone</module>
+        <!-- <module>standalone-ssl</module> -->
+    </modules>
 </project>
 

@@ -8,7 +8,7 @@
     </parent>
 
     <artifactId>alien4cloud-premium-ui</artifactId>
-    <version>3.0.0</version>
+    <version>3.0.1</version>
     <name>Alien 4 Cloud Premium Webapp</name>
     <packaging>war</packaging>
 
@@ -16,19 +16,34 @@
         <dependency>
             <groupId>alien4cloud</groupId>
             <artifactId>alien4cloud-ui</artifactId>
-            <version>${project.version}</version>
+            <version>3.0.0</version>
             <type>war</type>
             <classifier>standalone</classifier>
         </dependency>
         <dependency>
             <groupId>alien4cloud</groupId>
             <artifactId>alien4cloud-premium-security</artifactId>
-            <version>${project.version}</version>
+            <version>3.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.alien4cloud</groupId>
             <artifactId>alien4cloud-ha</artifactId>
-            <version>${project.version}</version>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
+          <groupId>org.apache.logging.log4j</groupId>
+          <artifactId>log4j-core</artifactId>
+          <version>2.17.1</version>
+        </dependency>
+        <dependency>
+          <groupId>org.apache.logging.log4j</groupId>
+          <artifactId>log4j-api</artifactId>
+          <version>2.17.1</version>
+        </dependency>
+        <dependency>
+          <groupId>org.apache.logging.log4j</groupId>
+          <artifactId>log4j-slf4j-impl</artifactId>
+          <version>2.17.1</version>
         </dependency>
     </dependencies>
 
@@ -40,12 +55,23 @@
                 <version>2.3</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <dependentWarExcludes>WEB-INF/lib/log4j-*-2.8.2.jar,WEB-INF/classes/version.json</dependentWarExcludes>
                     <overlays>
                         <overlay>
                             <id>alien4cloud-ui</id>
                             <classifier>standalone</classifier>
+                            <filtered>true</filtered>
                         </overlay>
                     </overlays>
+                    <webResources>
+                      <resource>
+                        <directory>src/main/resources/</directory>
+                        <targetPath>WEB-INF/classes</targetPath>
+                        <includes>
+                          <include>version.json</include>
+                        </includes>
+                      </resource>
+                    </webResources>
                 </configuration>
             </plugin>
             <plugin>
@@ -61,12 +87,6 @@
                         <configuration>
                             <classifier>standalone</classifier>
                             <mainClass>alien4cloud.Application</mainClass>
-                            <excludes>
-                                <exclude>
-                                    <groupId>alien4cloud</groupId>
-                                    <artifactId>alien4cloud-ui</artifactId>
-                                </exclude>
-                            </excludes>
                         </configuration>
                     </execution>
                 </executions>
@@ -74,3 +94,4 @@
         </plugins>
     </build>
 </project>
+
