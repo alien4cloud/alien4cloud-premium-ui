@@ -86,6 +86,12 @@
                         <configuration>
                             <classifier>standalone</classifier>
                             <mainClass>alien4cloud.Application</mainClass>
+                            <excludes>
+                                <exclude>
+                                    <groupId>alien4cloud</groupId>
+                                    <artifactId>alien4cloud-ui</artifactId>
+                                </exclude>
+                            </excludes>
                         </configuration>
                     </execution>
                 </executions>
