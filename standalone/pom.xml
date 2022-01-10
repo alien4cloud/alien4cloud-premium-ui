@@ -66,7 +66,6 @@
                     <webResources>
                       <resource>
                         <directory>src/main/resources/</directory>
-                        <targetPath>WEB-INF/classes</targetPath>
                         <includes>
                           <include>version.json</include>
                         </includes>
